@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"log"
+	"os"
 
 	"github.com/fogleman/gg"
 	"github.com/golang/freetype/truetype"
@@ -54,7 +55,7 @@ var imgCmd = &cobra.Command{
 		dc.SetHexColor("212121")
 		dc.SetFontFace(fontFace)
 		dc.DrawStringAnchored(alt, float64(width)/2, float64(height)/2, 0.5, 0.5)
-		dc.SavePNG(defaultPath + src + ".png")
+		dc.SavePNG(defaultPath + string(os.PathSeparator) + src + ".png")
 	},
 }
 

@@ -34,7 +34,7 @@ func init() {
 		return
 	}
 
-	defaultPath = home + string(os.PathSeparator)
+	defaultPath = home
 
 	rootCmd.PersistentFlags().StringVar(&path, "path", defaultPath, "Output Directory")
 
