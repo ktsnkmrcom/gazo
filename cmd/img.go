@@ -1,6 +1,3 @@
-/*
-Copyright © 2024 ktsnkmrcom
-*/
 package cmd
 
 import (
@@ -25,7 +22,7 @@ var (
 var imgCmd = &cobra.Command{
 	Use:   "img",
 	Short: "Create a temporary PNG image.",
-	Long:  "Create a temporary PNG image. \nExamples: gazo img --src examples --alt Title --width 1500 --height 500 --hex random --path $HOME/desktop/",
+	Long:  "Create a temporary PNG image. \nExamples: gazo img --src examples --alt Title --width 1500 --height 500 --hex random",
 	Run: func(cmd *cobra.Command, args []string) {
 
 		var fontSize int
