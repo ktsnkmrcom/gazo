@@ -36,7 +36,7 @@ func init() {
 
 	defaultPath = home + string(os.PathSeparator)
 
-	rootCmd.PersistentFlags().StringVar(&path, "path", "$HOME"+string(os.PathSeparator), "Output Directory")
+	rootCmd.PersistentFlags().StringVar(&path, "path", defaultPath, "Output Directory")
 
 	// Cobra also supports local flags, which will only run
 	// when this action is called directly.
