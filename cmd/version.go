@@ -12,7 +12,7 @@ var versionCmd = &cobra.Command{
 	Short: "Show version",
 	Long:  "Show version",
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("Gazo v0.1.0")
+		fmt.Println("Gazo v0.0.0")
 	},
 }
 
