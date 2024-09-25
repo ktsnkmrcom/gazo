@@ -23,15 +23,41 @@ var (
 var imgCmd = &cobra.Command{
 	Use:   "img",
 	Short: "Create a temporary PNG image.",
-	Long:  "Create a temporary PNG image. \nExamples: gazo img --src examples --alt Word --width 1500 --height 500 --hex aa00ff",
+	Long:  "Create a temporary PNG image. \nExamples: gazo img --src example --alt Word --width 1080 --height 1080 --hex e0e0e0 --path $HOME",
 	Run: func(cmd *cobra.Command, args []string) {
 
 		var fontSize int
 
-		if height <= width {
-			fontSize = height / 10
+		if width >= height {
+			// 横長
+			switch {
+			case height <= 40:
+				fontSize = 10
+			case height <= 100:
+				fontSize = 12
+			case height <= 200:
+				fontSize = 14
+			case height <= 300:
+				fontSize = 18
+			case height <= 400:
+				fontSize = 30
+			case height <= 500:
+				fontSize = 36
+			default:
+				fontSize = height / 10
+			}
 		} else {
-			fontSize = width / 10
+			// 縦長
+			switch {
+			case width <= 100:
+				fontSize = 12
+			case width <= 200:
+				fontSize = 14
+			case width <= 400:
+				fontSize = 18
+			default:
+				fontSize = width / 10
+			}
 		}
 
 		font, err := truetype.Parse(goregular.TTF)
@@ -54,7 +80,7 @@ var imgCmd = &cobra.Command{
 		dc.Clear()
 		dc.SetHexColor("212121")
 		dc.SetFontFace(fontFace)
-		dc.DrawStringAnchored(alt, float64(width)/2, float64(height)/2, 0.5, 0.5)
+		dc.DrawStringAnchored(alt, float64(width)/2, float64(height)/2, 0.5, 0.25)
 		dc.SavePNG(defaultPath + string(os.PathSeparator) + src + ".png")
 	},
 }
@@ -66,7 +92,7 @@ func init() {
 
 	imgCmd.Flags().StringVar(&alt, "alt", " ", "Word to insert into image. default is no insertion.")
 
-	imgCmd.Flags().StringVar(&hex, "hex", "e0e0e0", "Specify the background color. \"random\" will choose a random color")
+	imgCmd.Flags().StringVar(&hex, "hex", "e0e0e0", "Specify the background color. \"random\" will choose a random color.")
 
 	imgCmd.Flags().IntVar(&width, "width", 1080, "Width in pixels")
 
