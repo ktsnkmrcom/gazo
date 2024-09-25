@@ -29,7 +29,6 @@ var imgCmd = &cobra.Command{
 		var fontSize int
 
 		if width >= height {
-			// 横長
 			switch {
 			case height <= 40:
 				fontSize = 10
@@ -47,7 +46,6 @@ var imgCmd = &cobra.Command{
 				fontSize = height / 10
 			}
 		} else {
-			// 縦長
 			switch {
 			case width <= 100:
 				fontSize = 12
