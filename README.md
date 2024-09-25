@@ -16,7 +16,7 @@ gazo img --src example --alt Word --width 1080 --height 1080 --hex e0e0e0 --path
 ### Flags
 
 --src string   File name of png image. (default "temporary")  
---alt string   Word to insert into image. default is no insertion.  
+--alt string   Word to insert into image. default is no insertion. (default " ")  
 --width int    Width in pixels (default 1080)  
 --height int   Height in pixels (default 1080)  
 --hex string   Specify the background color. "random" will choose a random color. (default "e0e0e0")  
