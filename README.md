@@ -1,6 +1,4 @@
-# gazo
-
-## Create a temporary PNG image.
+# CLI app for creating temporary PNG images.
 
 Flags are easy.  
 Because they are similar to html img tags.
