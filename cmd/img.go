@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"fmt"
 	"log"
 	"os"
 
@@ -69,9 +70,24 @@ var imgCmd = &cobra.Command{
 			hex = common.RandomColor()
 		}
 
-		if path != "" {
+		switch path {
+		case "pwd":
+			defaultPath = currentPath
+		case "":
+			break
+		default:
 			defaultPath = path
 		}
+
+		// if path != "" {
+		// 	defaultPath = path
+		// }
+
+		// if path == "pwd" {
+		// 	defaultPath = currentPath
+		// }
+
+		fmt.Println(currentPath) //
 
 		dc := gg.NewContext(width, height)
 		dc.SetHexColor(hex)
@@ -90,7 +106,7 @@ func init() {
 
 	imgCmd.Flags().StringVar(&alt, "alt", " ", "Word to insert into image. Alphabetic characters only. default is no insertion.")
 
-	imgCmd.Flags().StringVar(&hex, "hex", "e0e0e0", "Specify the background color. \"random\" will choose a random color.")
+	imgCmd.Flags().StringVar(&hex, "hex", "e0e0e0", "Specify the background color. \"random\" selects a random color.")
 
 	imgCmd.Flags().IntVar(&width, "width", 1080, "Width in pixels")
 

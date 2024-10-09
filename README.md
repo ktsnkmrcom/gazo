@@ -1,6 +1,12 @@
 # CLI app for creating temporary PNG images.
 
-Flags are easy.  
+### Update
+
+You can save it to the current directory by specifying "--path pwd".
+
+---
+
+Flags are easy.
 Because they are similar to html img tags.
 
 ### Installing
@@ -19,9 +25,9 @@ gazo img --src example --alt Word --width 1080 --height 1080 --hex e0e0e0 --path
 
 ### Flags
 
---src : File name of png image. (default "temporary")  
---alt : Word to insert into image. Alphabetic characters only. default is no insertion. (default " ")  
---width : Width in pixels (default 1080)  
---height : Height in pixels (default 1080)  
---hex : Specify the background color. "random" will choose a random color. (default "e0e0e0")  
---path : Output Directory (default "$HOME")  
+--src : File name of png image. (default "temporary")
+--alt : Word to insert into image. Alphabetic characters only. default is no insertion. (default " ")
+--width : Width in pixels (default 1080)
+--height : Height in pixels (default 1080)
+--hex : Specify the background color. "random" will choose a random color. (default "e0e0e0")
+--path : Output directory. "pwd" selects the current directory. (default "$HOME")

@@ -9,6 +9,7 @@ import (
 
 var defaultPath string
 var path string
+var currentPath string
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
@@ -36,7 +37,15 @@ func init() {
 
 	defaultPath = home
 
-	rootCmd.PersistentFlags().StringVar(&path, "path", defaultPath, "Output Directory")
+	dir, err := os.Getwd()
+	if err != nil {
+		fmt.Fprintln(os.Stderr, err)
+		return
+	}
+
+	currentPath = dir
+
+	rootCmd.PersistentFlags().StringVar(&path, "path", defaultPath, "Output directory. \"pwd\" selects the current directory.")
 
 	// Cobra also supports local flags, which will only run
 	// when this action is called directly.
