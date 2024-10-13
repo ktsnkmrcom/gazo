@@ -1,7 +1,6 @@
 package cmd
 
 import (
-	"fmt"
 	"log"
 	"os"
 
@@ -78,16 +77,6 @@ var imgCmd = &cobra.Command{
 		default:
 			defaultPath = path
 		}
-
-		// if path != "" {
-		// 	defaultPath = path
-		// }
-
-		// if path == "pwd" {
-		// 	defaultPath = currentPath
-		// }
-
-		fmt.Println(currentPath) //
 
 		dc := gg.NewContext(width, height)
 		dc.SetHexColor(hex)
