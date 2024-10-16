@@ -1,5 +1,7 @@
 # CLI app for creating temporary PNG images.
 
+## This is a personal study sample.
+
 ### Update
 
 You can save it to the current directory by specifying "--path pwd".
